@@ -1,6 +1,7 @@
 package presentacion.RegistroUsuario;
 
 import logicaNegocio.Banco;
+import logicaNegocio.BaseDeDatos;
 import logicaNegocio.CuentaBancaria;
 import presentacion.VentanaPrincipal.VentanaPrincipalForms;
 
@@ -58,7 +59,7 @@ public class RegistroUsuarioForm extends JFrame {
 
                 CuentaBancaria usuario = new CuentaBancaria(nombre, saldo, contraseña);
 
-                Banco.agregarUsuarios(usuario);
+                BaseDeDatos.agregarUsuarios(usuario);
 
                 String mensaje = "Tus datos son: \n" +
                                  "Nombre De La Cuenta: " + nombre + "\n" +
