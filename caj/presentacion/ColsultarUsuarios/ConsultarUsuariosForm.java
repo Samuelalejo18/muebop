@@ -1,7 +1,7 @@
 package presentacion.ColsultarUsuarios;
 
 import logicaNegocio.BaseDeDatos;
-import logicaNegocio.Usuario;
+import logicaNegocio.CuentaBancaria;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -57,7 +57,7 @@ public class ConsultarUsuariosForm
             modelo.addColumn(nombreDeColumna);
         }
         // Agregar filas
-        for(Usuario usuario : BaseDeDatos.getListaDeUsuarios()) {
+        for(CuentaBancaria usuario : BaseDeDatos.getListaDeUsuarios()) {
             Object[] fila = new Object[]{usuario.getNombre(), usuario.getSaldo(), usuario.getContraseña()};
             modelo.addRow(fila);
         }

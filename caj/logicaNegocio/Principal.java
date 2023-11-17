@@ -1,14 +1,14 @@
-/*package logicaNegocio;
+package logicaNegocio;
 
 import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) {
         try (Scanner lector = new Scanner(System.in)) {
-            CuentaBancaria WolfBank = new CuentaBancaria();
+            Banco WolfBank = new Banco();
 
             // Crear objetos de la clase usuario
-            Usuario Usuario1 = new Usuario("Samuel", 100000, "Lukas2012");
+            CuentaBancaria Usuario1 = new CuentaBancaria("Samuel", 100000, "Lukas2012");
 
             // Registrar los libros en la biblioteca
             WolfBank.Registrar(Usuario1);
@@ -38,7 +38,7 @@ public class Principal {
                         double nuevoSaldo = Double.parseDouble(lector.nextLine());
 
                         // Crear un nuevo libro con los datos proporcionados
-                        Usuario nuevoUsuario = new Usuario(nuevoNombre, nuevoSaldo, nuevoContraseña);
+                        CuentaBancaria nuevoUsuario = new CuentaBancaria(nuevoNombre, nuevoSaldo, nuevoContraseña);
                         // Registrar el nuevo libro en la biblioteca
                         WolfBank.Registrar(nuevoUsuario);
                     }
@@ -68,4 +68,3 @@ public class Principal {
     }
 }
 
- */

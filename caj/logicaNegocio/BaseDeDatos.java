@@ -3,7 +3,7 @@ package logicaNegocio;
 import java.util.LinkedList;
 
 public class BaseDeDatos {
-    private static LinkedList<Usuario> listaDeUsuarios = new LinkedList<>();
+    private static LinkedList<CuentaBancaria> listaDeUsuarios = new LinkedList<>();
 
     /**
      * Retorna la lista de personas
@@ -11,7 +11,7 @@ public class BaseDeDatos {
      *
      * Complejidad temporal: O(1) Complejidad Constante
      */
-    public static LinkedList<Usuario> getListaDeUsuarios() {
+    public static LinkedList<CuentaBancaria> getListaDeUsuarios() {
 
         return listaDeUsuarios;
     }
@@ -22,7 +22,7 @@ public class BaseDeDatos {
      *
      * Complejidad temporal: O(1) Complejidad Constante
      */
-    public static void agregarUsuarios(Usuario usuario) {
+    public static void agregarUsuarios(CuentaBancaria usuario) {
 
         listaDeUsuarios.add(usuario);
     }
