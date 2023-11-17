@@ -11,7 +11,7 @@ public class Principal {
             CuentaBancaria Usuario1 = new CuentaBancaria("Samuel", 100000, "Lukas2012");
 
             // Registrar los libros en la biblioteca
-            WolfBank.Registrar(Usuario1);
+            WolfBank.registrar(Usuario1);
 
             int opcion = -1; // Operación de tiempo constante, O(1)
 
@@ -40,7 +40,7 @@ public class Principal {
                         // Crear un nuevo libro con los datos proporcionados
                         CuentaBancaria nuevoUsuario = new CuentaBancaria(nuevoNombre, nuevoSaldo, nuevoContraseña);
                         // Registrar el nuevo libro en la biblioteca
-                        WolfBank.Registrar(nuevoUsuario);
+                        WolfBank.registrar(nuevoUsuario);
                     }
                     case 2 -> {
 
@@ -49,7 +49,7 @@ public class Principal {
                         String user = lector.nextLine();
                         System.out.println("Ingrese la contraseña: ");
                         String password = lector.nextLine();
-                        WolfBank.Autentificar(user, password);
+                        WolfBank.autentificar(user, password);
                         System.out.println("\n");
                     }
                     case 0 -> {

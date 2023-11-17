@@ -9,7 +9,7 @@ public class Banco {
     private CuentaBancaria usuarioAutenticado;
     Scanner lector = new Scanner(System.in);
 
-    public void Registrar(CuentaBancaria Usuario) {
+    public void registrar(CuentaBancaria Usuario) {
         if (!cuentasBancarias.contains(Usuario)) {
             cuentasBancarias.add(Usuario);
             System.out.println("El Usuario " + Usuario.getNombre() + " ha sido registrado exitosamente.");
@@ -19,7 +19,7 @@ public class Banco {
         }
     }
 
-    public void Autentificar(String nombreUsuario, String contraseña) {
+    public void autentificar(String nombreUsuario, String contraseña) {
         CuentaBancaria usuarioEncontrado = null;
 
         for (CuentaBancaria Usuario : cuentasBancarias) {
@@ -32,43 +32,8 @@ public class Banco {
             if (usuarioEncontrado.getContraseña().equals(contraseña)) {
                 usuarioAutenticado = usuarioEncontrado;
                 System.out.println("Autenticación exitosa para el usuario " + nombreUsuario);
+                userActions();
 
-                int opcion = -1;
-
-                while (opcion != 0) {
-                    System.out.println("\n");
-                    System.out.println("Por favor, elija una opción:");
-                    System.out.println("1. Consultar saldo");
-                    System.out.println("2. Ingresar dinero");
-                    System.out.println("3. Retirar dinero");
-                    System.out.println("4. Realizar una transacción");
-                    System.out.println("0. Salir");
-                    System.out.println("\n");
-                    opcion = Integer.parseInt(lector.nextLine());
-
-                    switch (opcion) {
-                        case 1 -> System.out.println("Tu saldo es de " + usuarioAutenticado.getSaldo());
-                        case 2 -> {
-                            System.out.println("Digite la cantidad a ingresar");
-                            double cantidadIngresada = Double.parseDouble(lector.nextLine());
-                            usuarioAutenticado.Depositar(cantidadIngresada);
-                        }
-                        case 3 -> {
-                            System.out.println("Digite la cantidad a retirar");
-                            double cantidadRetirada = Double.parseDouble(lector.nextLine());
-                            usuarioAutenticado.Retirar(cantidadRetirada);
-                        }
-                        case 4 -> {
-                            System.out.println("Ingrese el usuario al que desea enviar");
-                            String usuarioDestinatario = lector.nextLine();
-                            System.out.println("Ingrese la cantidad a enviar");
-                            double cantidadEnviar = Double.parseDouble(lector.nextLine());
-                            Transferir(usuarioDestinatario, cantidadEnviar);
-                        }
-                        case 0 -> System.out.println("\nSaliendo de WolfBank. Hasta la próxima");
-                        default -> System.out.println("\nOpción no válida. Por favor, elija una opción válida.");
-                    }
-                }
             } else {
                 System.out.println("Contraseña incorrecta ");
             }
@@ -77,7 +42,49 @@ public class Banco {
         }
     }
 
-    public void Transferir(String nombreDestinatario, double cantidad) {
+    public  void userActions(){
+        int opcion = -1;
+
+        while (opcion != 0) {
+            System.out.println("\n");
+            System.out.println("Por favor, elija una opción:");
+            System.out.println("1. Consultar saldo");
+            System.out.println("2. Ingresar dinero");
+            System.out.println("3. Retirar dinero");
+            System.out.println("4. Realizar una transacción");
+            System.out.println("0. Salir");
+            System.out.println("\n");
+            opcion = Integer.parseInt(lector.nextLine());
+
+            switch (opcion) {
+                case 1 -> System.out.println("Tu saldo es de " + usuarioAutenticado.getSaldo());
+                case 2 -> {
+                    System.out.println("Digite la cantidad a ingresar");
+                    double cantidadIngresada = Double.parseDouble(lector.nextLine());
+                    usuarioAutenticado.Depositar(cantidadIngresada);
+                }
+                case 3 -> {
+                    System.out.println("Digite la cantidad a retirar");
+                    double cantidadRetirada = Double.parseDouble(lector.nextLine());
+                    usuarioAutenticado.Retirar(cantidadRetirada);
+                }
+                case 4 -> {
+                    System.out.println("Ingrese el usuario al que desea enviar");
+                    String usuarioDestinatario = lector.nextLine();
+                    System.out.println("Ingrese la cantidad a enviar");
+                    double cantidadEnviar = Double.parseDouble(lector.nextLine());
+                    transferir(usuarioDestinatario, cantidadEnviar);
+                }
+                case 0 -> System.out.println("\nSaliendo de WolfBank. Hasta la próxima");
+                default -> System.out.println("\nOpción no válida. Por favor, elija una opción válida.");
+            }
+        }
+    }
+
+
+
+
+    public void transferir(String nombreDestinatario, double cantidad) {
         if (usuarioAutenticado != null) {
             CuentaBancaria destinatario = null;
             for (CuentaBancaria usuario : cuentasBancarias) {
