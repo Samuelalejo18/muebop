@@ -84,7 +84,7 @@ public class CuentaBancaria {
 
 
 
-    public void Depositar(double cantidad) {
+    public void depositar(double cantidad) {
 
             double saldoActual = this.getSaldo();
             double nuevoSaldo = saldoActual + cantidad;
@@ -94,7 +94,7 @@ public class CuentaBancaria {
     }
 
 
-    public void Retirar(double cantidad2) {
+    public void retirar(double cantidad2) {
 
             double saldoActual2 = this.getSaldo();
 

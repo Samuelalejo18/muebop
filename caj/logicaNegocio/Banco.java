@@ -7,14 +7,15 @@ import java.util.Scanner;
 public class Banco {
     private static LinkedList<CuentaBancaria> cuentasBancarias = new LinkedList<>();
     private CuentaBancaria usuarioAutenticado;
+    
     Scanner lector = new Scanner(System.in);
 
-    public void registrar(CuentaBancaria Usuario) {
-        if (!cuentasBancarias.contains(Usuario)) {
-            cuentasBancarias.add(Usuario);
-            System.out.println("El Usuario " + Usuario.getNombre() + " ha sido registrado exitosamente.");
+    public void registrar(CuentaBancaria usuario) {
+        if (!cuentasBancarias.contains(usuario)) {
+            cuentasBancarias.add(usuario);
+            System.out.println("El Usuario " + usuario.getNombre() + " ha sido registrado exitosamente.");
         } else {
-            System.out.println("El Usuario " + Usuario.getNombre()
+            System.out.println("El Usuario " + usuario.getNombre()
                     + " ya existe. No se puede registrar nuevamente.");
         }
     }
@@ -61,12 +62,12 @@ public class Banco {
                 case 2 -> {
                     System.out.println("Digite la cantidad a ingresar");
                     double cantidadIngresada = Double.parseDouble(lector.nextLine());
-                    usuarioAutenticado.Depositar(cantidadIngresada);
+                    usuarioAutenticado.depositar(cantidadIngresada);
                 }
                 case 3 -> {
                     System.out.println("Digite la cantidad a retirar");
                     double cantidadRetirada = Double.parseDouble(lector.nextLine());
-                    usuarioAutenticado.Retirar(cantidadRetirada);
+                    usuarioAutenticado.retirar(cantidadRetirada);
                 }
                 case 4 -> {
                     System.out.println("Ingrese el usuario al que desea enviar");
